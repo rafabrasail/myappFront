@@ -1,0 +1,79 @@
+<h1 class="mt-4">Privileges List</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Lista de privilegios criados</li>
+</ol>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+    
+            <div class="alert alert-success" role="alert" *ngIf="mensagemSuccess">
+                {{ mensagemSuccess }}
+            </div>
+    
+            <div class="alert alert-danger" role="alert" *ngIf="mensagemError">
+                {{ mensagemError }}
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2">
+            <button class="btn btn-warning" (click)="novoPrivilegio()">
+                <i class="fa fa-plus"></i> Novo
+            </button>
+        </div>
+    </div>
+    <br>
+
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-condensed table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <body>
+                    <tr *ngFor="let privilege of privileges">
+                        <td>{{ privilege.id }}</td>
+                        <td>{{ privilege.name }}</td>
+                        <td>
+                            <button class="btn btn-primary" routerLink="/privilege/form/{{ privilege.id }}">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" (click)="prepaerDelete(privilege)" data-toggle="modal" data-target="#modalDelecao">
+                                <i class="fa fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                </body>
+            </table>
+        </div>
+    </div>
+
+    <div id="modalDelecao" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4>Confirmação</h4>
+                </div>
+        
+                <div class="modal-body" *ngIf="privilegeSelected">
+                    Confirma a deleção do(a) Privilegio {{ privilegeSelected.name }}?
+                </div>
+        
+                <div class="modal-footer">
+                    <button class="btn btn-success" (click)="deletePrivilege()" data-dismiss="modal">Confirmar</button>
+                    <button class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

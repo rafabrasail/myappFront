@@ -1,0 +1,63 @@
+<h1 class="mt-4">Cadratro User</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro de novo user</li>
+</ol>
+<div class="container">
+    <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="successForm == true">
+                    Usuário salvo/atualizado com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errorsForm">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+
+        <!-- form -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Id:</label>
+                    <input type="text" class="form-control" disabled="true" [ngModel]="users.id" name="id" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" [(ngModel)]="users.username" username="username" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" class="form-control" [ngModel]="users.password" password="password" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Role:</label>
+                    <p>Colocar um comboBox aqui para selecionar uma role</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- button -->
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Save
+                </button>
+        
+                <button class="btn btn-danger" routerLink="/user/list">
+                    <i class="fa fa-ban"></i> Cancel
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

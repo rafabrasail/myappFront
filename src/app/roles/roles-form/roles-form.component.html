@@ -1,0 +1,60 @@
+<h1 class="mt-4">Cadratro de Role</h1>
+<ol class="breadcrumb mb-4">
+    <li class="breadcrumb-item active">Cadastro de nova role</li>
+</ol>
+<div class="container">
+    <form #roleForm="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" role="alert" *ngIf="successForm == true">
+                    Privilege salvo/atualizado com sucesso!
+                </div>
+                <div class="alert alert-danger" role="alert" *ngFor="let erro of errorsForm">
+                    {{ erro }}
+                </div>
+            </div>
+        </div>
+
+        <!-- form -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Id:</label>
+                    <input type="text" class="form-control" disabled="true" [ngModel]="roles.id" name="id" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Nome:</label>
+                    <input type="text" class="form-control" [(ngModel)]="roles.roleName" name="name" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Description:</label>
+                    <input type="text" class="form-control" [(ngModel)]="roles.roleDescription" name="name" />
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Inserir os privileges aqui</h3>
+        </div>
+
+        <!-- buttons -->
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success">
+                    <i class="fa fa-save"></i> Save
+                </button>
+        
+                <button class="btn btn-danger" routerLink="/roles/list">
+                    <i class="fa fa-ban"></i> Cancel
+                </button>
+            </div>
+        </div>
+
+    </form>
+</div>

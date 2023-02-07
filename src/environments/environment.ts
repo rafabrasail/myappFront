@@ -3,7 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  apiURLBase: 'http://localhost:9090',
+  clientId: 'angular-client',
+  clientSecret: '@pass321',
+  tokenURL: '/oauth/token'
 };
 
 /*

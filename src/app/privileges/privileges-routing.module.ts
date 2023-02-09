@@ -6,6 +6,7 @@ import { PrivilegesListComponent } from './privileges-list/privileges-list.compo
 const routes: Routes = [
   {path: 'privilege', children: [
     {path: 'form', component: PrivilegesFormComponent},
+    {path: 'form/:id', component: PrivilegesFormComponent},
     {path: 'list', component: PrivilegesListComponent},
   ]}
 

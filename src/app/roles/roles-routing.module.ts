@@ -6,6 +6,7 @@ import { RolesListComponent } from './roles-list/roles-list.component';
 const routes: Routes = [
   {path: 'roles', children: [
     {path: 'form', component: RolesFormComponent},
+    {path: 'form/:id', component: RolesFormComponent},
     {path: 'list', component: RolesListComponent}
   ]}
 ];

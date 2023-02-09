@@ -36,8 +36,12 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <button type="submit" class="btn btn-success" (click)="clicar()">
+                <button type="submit" class="btn btn-success" (click)="clicar()" *ngIf="!privileges.id">
                     <i class="fa fa-save"></i> Save
+                </button>
+
+                <button type="submit" class="btn btn-primary" (click)="clicar()" *ngIf="privileges.id">
+                    <i class="fa fa-save"></i> Atualizar
                 </button>
 
                 <button class="btn btn-danger" routerLink="/privilege/list">

@@ -6,6 +6,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 const routes: Routes = [
   {path: 'user', children: [
     {path: 'form', component: UsersFormComponent},
+    {path: 'form/:id', component: UsersFormComponent},
     {path: 'list', component: UsersListComponent}
   ]}
 ];
